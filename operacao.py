@@ -200,3 +200,192 @@ class Operacao:
             return "é um número perfeito"
         else:
             return "não é um número perfeito"
+
+
+    def exercicio21(self):
+        A = 10
+        B = 20
+
+        aux = B
+        auxi = A
+
+        return aux, auxi
+
+    def exercicio22(self, num1):
+        resu = num1 - 1
+        return resu
+
+    def exercicio23(self,num1,num2):
+        area = num1 * num2
+        return area
+
+    def exercicio24(self,num1,num2,num3):
+        resu = ((num3 * 365) + (num2 * 30) + num1)
+        return resu
+
+    def exercicio25(self,num1,num2,num3,num4):
+        branco = (100*num2)/num1
+        nulo   = (100*num3)/num1
+        valido = (100*num4)/num1
+
+        return (f'O percentual dos votos brancos :{branco}\n'
+                f'O percentual dos votos nulos   :{nulo}\n'
+                f'O percentual dos votos valido  :{valido}\n')
+
+    def exercicio26(self,num1,num2):
+        novo =  (num2 / 100)
+        novo1 = (num1 * novo)
+
+        resu = num1 + novo1
+
+        return f'O valor do novo salário com reajuste foi : {resu}'
+
+    def exercicio27(self, num1):
+        distribuidor = 28 / 100
+        imposto = 45 / 100
+
+        custoFinal = (num1 * distribuidor) + (num1 * imposto) + num1
+
+        return custoFinal
+
+
+    def exercicio28(self,num1,num2,num3):
+        resu = (num1 + num2 + num3 )/3
+        return f' A média final foi : {resu}'
+
+    def exercicio29(self, num1):
+        maca = " "
+        if num1 < 12:
+            maca = 1.30 * num1
+        else:
+            maca = 1 * num1
+        return f'O valor total da compra de maças é : {maca} reais'
+    def exercicio30(self, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10):
+        valores = [num1, num2, num3, num4, num5, num6, num7, num8, num9, num10]
+        valores_unicos = list(set(valores))
+        valores_unicos.sort()
+
+        return valores_unicos
+
+    def exercicio31(self, num1, num2):
+        if num2 <= 1500:
+            comi = num2 * 0.03
+            sal1 = num1 + comi
+            return sal1
+        else:
+            comi2 = num2 * 0.08
+            sal2 = num1 + comi2
+            return sal2
+
+
+    def exercicio32(self, num1,num2,num3,num4):
+        saldoAtual = num2 - num4 + num3
+        if saldoAtual >= 0:
+             return f'Seu saldo é positivo no valor de R$ {saldoAtual}'
+        else:
+             return f'Seu saldo é negativo no valor de R$ {saldoAtual}'
+
+
+
+    def exercicio33(self, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10):
+        neg = 0
+        for num in [num1, num2, num3, num4, num5, num6, num7, num8, num9, num10]:
+            if num < 0:
+                neg += 1
+        return f'{neg} números negativos'
+
+    def exercicio34(self, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10):
+        numeros = [num1, num2, num3, num4, num5, num6, num7, num8, num9, num10]
+
+        soma = sum(numero for numero in numeros if numero < 40)
+
+        return soma
+
+    def exercicio35(self):
+        soma = sum(range(15,100 + 1))
+        quantidade = 100 - 15 + 1
+        media = soma / quantidade
+        return f"A média aritmética dos números  entre 15 e 101 é {media}"
+
+    def exercicio36(self, num1):
+        quant = num1
+        soma = 0
+        maior = float('-inf')
+
+        for i in range(quant):
+            num = int(input("Informe um número: "))
+            if num > maior:
+                maior = num
+            soma += num
+
+        media = soma / quant
+
+        return (f'O maior número: {maior}\n'
+                f'A média dos números é: {media:.2f}\n')
+
+    def exercicio37(self, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11, num12, num13, num14,
+                    num15, num16, num17, num18, num19, num20):
+
+        notas = [num1, num2, num3, num4, num5, num6, num7, num8, num9, num10,
+                 num11, num12, num13, num14, num15, num16, num17, num18, num19, num20]
+
+        soma = sum(notas)
+
+        media = soma / len(notas)
+
+        acimaMedia = sum(1 for nota in notas if nota > media)
+
+        return (f'A média da turma é: {media:.2f}\n'
+                f'Quantidade de alunos com nota acima da média: {acimaMedia}')
+
+    def exercicio38(self):
+        soma_salarios = 0
+        soma_filhos = 0
+        maior_salario = float('-inf')
+        contagem = 0
+        contagem_salario_baixo = 0
+
+        while True:
+            salario = float(input("Digite o salário do habitante (ou um valor negativo para encerrar): "))
+
+            if salario < 0:
+                break
+
+            filhos = int(input("Digite o número de filhos do habitante: "))
+
+            soma_salarios += salario
+            soma_filhos += filhos
+            contagem += 1
+
+            if salario > maior_salario:
+                maior_salario = salario
+
+            if salario < 150:
+                contagem_salario_baixo += 1
+
+        if contagem > 0:
+            media_salarios = soma_salarios / contagem
+            media_filhos = soma_filhos / contagem
+            percentual_salario_baixo = (contagem_salario_baixo / contagem) * 100
+        else:
+            media_salarios = 0
+            media_filhos = 0
+            percentual_salario_baixo = 0
+
+        return (f"Média de salário da população: R$ {media_salarios:.2f}\n"
+                f"Média do número de filhos: {media_filhos:.2f}\n"
+                f"Maior salário dos habitantes: R$ {maior_salario:.2f}\ns"
+                f"Percentual de pessoas com salário menor que R$ 150,00: {percentual_salario_baixo:.2f}%")
+
+
+
+
+
+
+
+
+
+
+
+
+
